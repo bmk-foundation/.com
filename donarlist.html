@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>বামনডাঙ্গা মানব কল্যাণ ফাউন্ডেশন</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+  <link rel="stylesheet" href="donarlist.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Custom Alert Box -->
+  <div class="custom-alert" id="customAlert">
+  <p><i class="fas fa-exclamation-triangle"></i> প্রিন্ট ফিচার এই অ্যাপে সাপোর্টেড না।</p>
+  <button onclick="closeAlert()">বন্ধ করুন</button>
+</div>
+
+  <div class="tab-buttons">
+
+  <button onclick="handlePrint()"><i class="fas fa-print"></i> প্রিন্ট করুন</button>
+  
+    <button class="active" onclick="showTab('donors')">দাতাদের তালিকা</button>
+    
+        <button onclick="showTab('summary')">মোট হিসাব</button>
+  </div>
+  <!-- Summary Tab -->
+  <div id="summary" class="tab-content">
+    <h2>বামনডাঙ্গা মানব কল্যাণ ফাউন্ডেশন</h2>
+    <div class="summary-box">
+  <div class="container">
+    <div id="summaryCards">
+      <div class="spinner"></div>
+    </div>
+  </div>
+    </div>
+  </div>
+  
+  <!-- Donors Tab -->
+  <div id="donors" class="tab-content active">
+    <h3>দাতাদের তালিকা</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>নাম</th>
+        <th>ফোন</th>
+        <th>টাকা</th>
+      </tr>
+    </thead>
+    <tbody id="donorList">
+  <tr><td colspan="3">🔄 তথ্য লোড হচ্ছে...</td></tr>
+    </tbody>
+  </table>
+  </div>
+<div class="table-wrapper">
+  <table id="donorTable">
+    <!-- আপনার টেবিল হেডার ও বডি এখানে -->
+  </table>
+</div>
+<script>
+function handlePrint() {
+  const ua = navigator.userAgent.toLowerCase();
+  const isWebView = (
+    ua.includes("wv") || ua.includes("version/") || window.location.href.startsWith("file://")
+  );
+
+  if (isWebView) {
+    showAlert();
+  } else {
+    window.print();
+  }
+}
+
+function showAlert() {
+  document.getElementById('customAlert').style.display = 'block';
+}
+
+function closeAlert() {
+  document.getElementById('customAlert').style.display = 'none';
+}
+</script>
+  <script src="donarlist.js"></script>
+</body>
+</html>

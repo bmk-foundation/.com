@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>বামনডাঙ্গা মানব কল্যাণ ফাউন্ডেশন</title>
+  <link rel="stylesheet" href="activities.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Font Awesome (যদি ভবিষ্যতে দরকার হয়) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header-wrapper">
+    <div class="top-right-bar">
+      <div class="social-icons">
+ <a href="https://t.me/+I07jz9xndXQwZjM1"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" title="Telegram" /></a>
+          <a href="https://www.facebook.com/groups/1796218841293602/?ref=share&mibextid=NSMWBT"><img src="https://i.ibb.co/274FbsFv/facebook.png" alt="Facebook" /></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" /></a>
+          <a href="mailto:bmkf.official@gmail.com"><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" /></a>
+          <a href="tel:+8801345691465"><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone" /></a>
+      </div>
+    </div>
+            <!-- Head section -->
+      <div class="logo-title">
+        <img src="https://i.ibb.co/ccxgJBfj/20250720-184300.jpg" alt="logo" />
+        <h1 style="font-size: 20px;">বামনডাঙ্গা মানব কল্যাণ ফাউন্ডেশন</h1>
+    </div>
+    <!-- Hamburger Button -->
+  <button id="menuToggle" class="hamburger">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  </div>
+  <!-- Overlay -->
+  <div id="overlay" class="overlay"></div>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <img src="https://i.ibb.co/ccxgJBfj/20250720-184300.jpg" alt="logo" />
+      <h2>বামনডাঙ্গা মানব কল্যাণ ফাউন্ডেশন</h2>
+    </div>
+    <a href="index.html"><i class="fas fa-home"></i>
+হোম পেজ</a>
+    <a href="donate.html"> <i class="fas fa-donate"></i>
+ দান করুন</a>
+    <!--a href="activities.html"><i class="fas fa-tasks"></i>
+কার্যক্রম</a-->
+    <a href="constitution.html"><i class="fas fa-book"></i>
+সংবিধান</a>
+    <!--a href="member.html"><i class="fas fa-users-cog"></i>
+মূল সদস্য</a-->
+    <a href="announcement.html"><i class="fas fa-bullhorn"></i>
+ঘোষণা</a>
+      <a href="galary.html"><i class="fas fa-images"></i>
+গ্যালারি</a>
+      <!--a href="donarlist.html"> <i class="fas fa-hands-helping"></i>
+দাতাদের তালিকা</a-->
+      <a href="Expenses.html"><i class="fas fa-chart-pie"></i>
+ব্যয় বিবরণী</a>
+      <a href="registration.html"><i class="fas fa-user-plus"></i>
+রেজিস্ট্রেশন</a>
+      <a href="about.html"><i class="fas fa-info-circle"></i>
+আমাদের বিষয়</a>
+  </div>
+<main>
+    <div style="margin-top: 85px;">
+<!--Font Awesome Start-->
+<div class="service-grid">
+  <a href="#" class="service-item"><i class="fas fa-hand-holding-heart"></i><span>মানব কল্যাণ</span></a>
+  <a href="#" class="service-item"><i class="fas fa-notes-medical"></i><span>চিকিৎসা সহায়তা</span></a>
+  <a href="#" class="service-item"><i class="fas fa-book"></i><span>শিক্ষা উপকরণ</span></a>
+  <a href="#" class="service-item"><i class="fas fa-bowl-food"></i><span>খাদ্য সহায়তা</span></a>
+  <a href="#" class="service-item"><i class="fas fa-shirt"></i><span>শীতবস্ত্র বিতরণ</span></a>
+  <a href="#" class="service-item"><i class="fas fa-box"></i><span>রমজান খাদ্য প্যাকেজ</span></a>
+  <a href="#" class="service-item"><i class="fas fa-tint"></i><span>রক্তদান কর্মসূচি</span></a>
+  <a href="#" class="service-item"><i class="fas fa-hand-holding-medical"></i><span>ফ্রি চিকিৎসা</span></a>
+  <a href="#" class="service-item"><i class="fas fa-child"></i><span>এতিমশিশু সহায়তা</span></a>
+  <a href="#" class="service-item"><i class="fas fa-mosque"></i><span>মসজিদ উন্নয়ন</span></a>
+  <a href="#" class="service-item"><i class="fas fa-cart-shopping"></i><span>দরিদ্রদের পণ্য সহায়তা</span></a>
+  <a href="#" class="service-item"><i class="fas fa-seedling"></i><span>বৃক্ষরোপণ কর্মসূচি</span></a>
+</div>
+</div>
+</div>
+</main>
+  <script>
+const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    // Show sidebar and hide hamburger
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      sidebar.classList.add('active');
+      overlay.classList.add('active');
+      menuToggle.classList.add('active');
+      menuToggle.classList.add('hidden');
+    });
+
+    // Close sidebar and show hamburger when clicking outside
+    function closeSidebar() {
+      sidebar.classList.remove('active');
+      overlay.classList.remove('active');
+      menuToggle.classList.remove('active');
+      menuToggle.classList.remove('hidden');
+    }
+
+    overlay.addEventListener('click', closeSidebar);
+
+    document.addEventListener('click', (e) => {
+      if (
+        !sidebar.contains(e.target) &&
+        !menuToggle.contains(e.target)
+      ) {
+        closeSidebar();
+      }
+    });
+
+    // Prevent closing if clicking inside sidebar
+    sidebar.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  </script>
+  </body>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>স্বত্ব &copy; 2025 <a href="https://bmkfoundation.netlify.app/">বামনডাঙ্গা মানব কল্যাণ ফাউন্ডেশন</a> - সর্ব স্বত্ব সংরক্ষিত।</p>
+      <div class="footer-links">
+        <a href="terms.html">পরিষেবা শর্তাবলী</a> |
+        <a href="privacy.html">গোপনীয়তা নীতি</a>
+      </div>
+    </div>
+  </footer>
+</html>

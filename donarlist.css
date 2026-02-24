@@ -1,0 +1,285 @@
+/* =========================
+   Global Reset
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   Body Styles
+========================= */
+/* টাইটেলের জন্য কাস্টম স্টাইল */
+@font-face {
+    font-family: 'Cholontika';
+    src: url('Codepotro Abu Sayed.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+   @font-face {
+    font-family: 'Adorsho';
+    src: url('Shadhinata.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;}
+body {
+  font-family: 'Adorsho', sans-serif !important; 
+  background: #fff;
+  min-height: 100vh;
+  color: #fff;
+  font-weight: normal;
+}
+
+/* =========================
+   Custom Alert
+========================= */
+.custom-alert {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 10px 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  text-align: left;
+  width: 80%;
+  min-width: 280px;
+  font-size: 16px;
+}
+
+.custom-alert i {
+  margin-right: 10px;
+  color: #d39e00;
+  font-size: 20px;
+}
+
+.custom-alert button {
+  margin-top: 10px;
+  padding: 7px 7px;
+  height: 35px;
+  width: 110px;
+  text-align: center;
+  border: none;
+  background: red;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 90px;
+}
+
+.custom-alert button:hover {
+  background-color: #e0a800;
+}
+
+/* =========================
+   Tab Buttons
+========================= */
+
+.tab-buttons {
+  
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  height: 50px;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.tab-buttons button {
+  font-family: 'Adorsho', sans-serif !important; 
+  text-align: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: green;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: normal;
+}
+
+.tab-buttons button.active {
+  background: #006064;
+}
+
+.tab-button button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: blue;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  height: 40px;
+}
+
+.tab-button button:hover {
+  background-color: red;
+  transform: scale(1.05);
+}
+
+/* =========================
+   Tabs Content
+========================= */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* =========================
+   Headings
+========================= */
+h2 {
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  color: #006064;
+  font-family: 'Cholontika', sans-serif !important; 
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  color: #006064;
+  font-weight: normal;
+}
+
+/* =========================
+   Summary Box
+========================= */
+.summary-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 360px;
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 90%;
+  margin: auto;
+  max-width: 400px;
+  position: relative;
+}
+
+.card {
+  color: #fff;
+  padding: 15px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.label {
+  font-weight: 500;
+}
+
+.value {
+  font-weight: bold;
+}
+
+/* Card Colors */
+.card:nth-child(1) { 
+  background-color: #28a745; /* Green */
+  margin-bottom: 20px;
+}
+
+.card:nth-child(2) { 
+  background-color: red; /* Red */
+  margin-bottom: 20px;
+}
+
+.card:nth-child(3) { 
+  background-color: #fd7e14; /* Orange */
+}
+
+/* =========================
+   Spinner
+========================= */
+.spinner {
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid red;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 50px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+/* =========================
+   Tables
+========================= */
+table {
+  
+  width: 100%;
+  border-collapse: collapse;
+  background: #546E7A;
+  color: white;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  table-layout: auto;
+  border: 0px solid #006064;
+}
+
+th, td {
+  padding: 14px 10px;
+  border: 1px solid #ccc;
+  animation: fadeIn 0.8s ease-in-out;
+  font-size: 16px;
+  word-wrap: break-word;
+  vertical-align: middle;
+}
+
+th {
+  background: #006064;
+  color: white;
+  font-weight: normal;
+  font-size: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Column Widths */
+th:nth-child(1), td:nth-child(1) { min-width: 180px; max-width: 320px; text-align: center;
+font-weight: normal;}
+th:nth-child(2), td:nth-child(2) { min-width: 120px; max-width: 160px; text-align: center;
+font-weight: normal;}
+th:nth-child(3), td:nth-child(3) { min-width: 100px; text-align: center; font-weight: normal; }
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}

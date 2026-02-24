@@ -1,0 +1,43 @@
+{
+  "name": "বামনডাঙ্গা মানব কল্যাণ ফাউন্ডেশন",
+  "short_name": "BMK Foundation",
+  "description": "মানব কল্যাণে নিবেদিত একটি সামাজিক ও স্বেচ্ছাসেবী প্রতিষ্ঠান।",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#004d40",
+  "theme_color": "#006040",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "bn",
+  "categories": ["social", "education"],
+  "icons": [
+    {
+      "src": "https://i.ibb.co/ccxgJBfj/20250720-184300.jpg",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://i.ibb.co/ccxgJBfj/20250720-184300.jpg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://i.ibb.co/ccxgJBfj/20250720-184300.jpg",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "BMK Foundation App View"
+    },
+    {
+      "src": "https://i.ibb.co/ccxgJBfj/20250720-184300.jpg",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "BMK Foundation Website View"
+    }
+  ]
+}

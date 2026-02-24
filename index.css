@@ -1,0 +1,859 @@
+/* ======= Reset & Font ======= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ @font-face {
+    font-family: 'Adorsho';
+    src: url('Shadhinata.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+html, body {
+  height: 100%;
+  font-family: 'Adorsho', sans-serif !important; 
+  display: flex;
+  flex-direction: column;
+}
+    /* Social + Header Shared Background */
+.header-wrapper {
+  position: fixed;
+  height: 80px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #006064;
+  color: white;
+  z-index: 1000;
+  padding: 10px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+    /* Top Social Bar */
+    .top-right-bar {
+      padding: 5px 15px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 12px;
+      margin-top: -10px;
+    }
+
+    .social-icons img {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.2);
+    }
+        .logo-title {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-title img {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%; /* Make it round */
+      margin-left: 60px;
+      margin-top: -10px;
+    }
+
+    .logo-title h1 {
+      margin-left: 15px;
+      color: white;
+      text-shadow: 1px 1px 2px black;
+      font-weight: normal;
+    margin-top: -5px;
+    }
+
+    /* Hamburger */
+.hamburger {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1101;
+  position: absolute;
+  top: 28px;
+  left: 10px;
+  transition: opacity 0.3s ease;
+  outline: none;
+  box-shadow: none;
+    -webkit-tap-highlight-color: transparent; /* মোবাইলে হালকা গ্লো বন্ধ */
+  box-shadow: none !important; /* যেকোনো shadow নিষ্ক্রিয় */
+  outline: none !important; /* ক্লিক করলে outline আসে, বন্ধ */
+  background: none !important;
+}
+.hamburger:focus,
+.hamburger:focus-visible,
+.hamburger:active {
+  outline: none !important;
+  box-shadow: none !important;
+    background: none !important;
+}
+
+.hamburger.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hamburger .bar {
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 250px;
+      height: 100%;
+      background: #006064;
+      box-shadow: 2px 0 6px rgba(0,0,0,0.2);
+      transition: left 0.3s ease;
+      z-index: 1100;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+  background-color: white;
+  border: none;
+  border-radius: 0; /* কোন গোল কোণা নয় */
+  color: #fff;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.4),
+    0 8px 16px rgba(0, 0, 0, 0.3),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+  position: relative;
+  z-index: 25; /* যেন বাকি বাটনের উপরে থাকে */
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+    .sidebar-header img {
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+
+    .sidebar-header h2 {
+      font-weight: normal;
+      font-family: 'Cholontika', sans-serif !important;
+      font-size: 16px;
+      color: #006064;
+    }
+
+    .sidebar a {
+      padding: 12px 20px;
+      text-decoration: none;
+      color: white;
+      border-bottom: 1px solid #eee;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #00695c;
+    }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: none;
+      z-index: 1000;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+/* ======= Slider ======= */
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  width: 95%;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 15px;
+  /* border: 2px solid red; → এই লাইনটি মুছে দেওয়া হলো */
+  border-radius: 12px; /* কনটেইনারেও সামান্য কার্ভ */
+}
+
+.slider {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 12px; /* 🔁 এখানে চারকোনায় হালকা কার্ভ যোগ করা হলো */
+}
+
+.dots-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+.dots-overlay span {
+  height: 8px;
+  width: 8px;
+  margin: 0 4px;
+  display: inline-block;
+  background-color: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dots-overlay span.active {
+  background-color: #006064;
+}
+
+.hadith-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 5px;
+  width: 100%;
+}
+.hadith-text {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: normal;
+  color: #006064;
+  left: 100%;
+
+}
+/*==============button=============*/
+.button-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-top: 30px;
+}
+
+.animated-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #15803d;
+  color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  width: 150px;
+  height: 45px;
+  font-size: 20px;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.animated-button:hover {
+  background-color: #e64a19;
+  transform: scale(1.05);
+  box-shadow: 0 8px 22px rgba(255, 87, 34, 0.6);
+}
+
+.animated-button:active {
+  background-color: #bf360c;
+  transform: scale(0.96);
+}
+.icon-img {
+  width: 35px;
+  height: 35px;
+  margin-right: -5px;
+  transition: transform 0.3s ease;
+  border-radius: 30%;
+  object-fit: cover;
+}
+.icon-image {
+  width: 40px;
+  height: 40px;
+  margin-right: -5px;
+  transition: transform 0.3s ease;
+  border-radius: 30%;
+  object-fit: cover;
+}
+.text {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: normal;
+}
+/*============firebase==========*/
+
+     #content {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section h4 {
+      background: transparent;
+      color: black;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .item {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .item:hover {
+      transform: scale(1.02);
+    }
+
+    .item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+.desc {
+  padding: 12px;
+  font-size: 16px;
+  color: #333;
+  white-space: pre-line;
+  line-height: 1.3;
+  text-align: justify;
+}
+    .divider {
+      height: 4px;
+      background: #006064;
+      width: 100%;
+    }
+    @keyframes blink {
+      0%, 80%, 100% {
+        opacity: 0;
+      }
+      40% {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid {
+        padding: 0 5px;
+      }
+    }
+    
+    /* ======= Footer ======= */
+footer {
+  background-color: #006064;
+  color: #FFEA00;
+  padding: 5px 0;
+  text-align: center;
+  font-size: 14px;
+  width: 100%;
+  margin-top: auto; /* ✅ This ensures footer stays at bottom when content is short */
+}
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 5px;
+  line-height: 1.5;
+}
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 0px;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+footer a:hover {
+  text-decoration: underline;
+  color: #FFEA00;
+}
+.footer-links {
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+/* ======= Scrollbar ======= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+}
+    @media (max-width: 600px) {
+      .logo-title h1 {
+        font-size: 14px;
+      }
+    }
+    
+  .foundation-container {
+  max-width: 900px;
+  margin: 15px auto;
+  padding: 10px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  font-family: "Noto Serif Bengali", serif;
+  line-height: 1.8;
+  color: #333;
+}
+
+.foundation-title {
+  font-size: 20px;
+  text-align: center;
+  color: #006064;
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+.foundation-line {
+  border: none;
+  height: 1px;
+  background-color: #1e3a8a;
+  width: 100%;
+  margin: 0 auto 15px auto;
+  border-radius: 0px;
+}
+
+.foundation-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
+}
+
+.foundation-image {
+  max-width: 100%;
+  border-radius: 50%;
+  width: 65%;
+}
+
+.foundation-description {
+  text-align: justify;
+  font-size: 16px;
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
+  .foundation-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .foundation-description {
+    width: 55%;
+  }
+}
+
+
+.donate-button-wrapper {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.donate-button {
+  background-color: #15803d;
+  color: white;
+  font-size: 20px;
+  padding: 5px 32px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none; /* 🔥 এটিই রেখা বন্ধ করে */
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+.donate-button:hover {
+  background-color: #e64a19;
+  transform: scale(1.05);
+  box-shadow: 0 8px 22px rgba(255, 87, 34, 0.6);
+}
+
+.donate-button:active {
+  background-color: #bf360c;
+  transform: scale(0.96);
+}
+.tree-image {
+  max-width: 100%;
+  border-radius: 10px;
+  width: 100%;
+}
+
+
+  .popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+  }
+
+.popup-content {
+      border: 2px solid red;
+    background: #fff;
+    padding: 20px;
+    padding-top: 30px;
+    border-radius: 12px;
+    width: 95%;
+    max-width: 450px;
+    height: 440px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    position: relative;
+    animation: fadeIn 0.5s ease-in-out;
+    background-image: url('https://i.ibb.co.com/VWdJs7r4/background0.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #333;
+    overflow: hidden;
+}
+
+.popup-content::before {
+    content: "";
+    position: absolute;
+    opacity: 0.8;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(255,255,255,0.85); /* overlay */
+    border-radius: 12px;
+    z-index: 0; /* overlay নিচে থাকবে */
+}
+
+.popup-content .popup-message {
+    position: relative;
+    z-index: 1; /* লেখা overlay এর উপরে থাকবে */
+}
+
+  
+  .close-btn {
+    position: absolute;
+    top: -50px;
+    right: -10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: red;
+    transition: color 0.3s ease;
+  }
+  .close-btn:hover {
+    color: red;
+  }
+  .popup-head {
+    padding: 15px;
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: darkgreen;
+      background: white;
+  border-radius: 4px;
+    text-shadow: 1px 1px 2px white;
+  }
+  .popup-message h3 {
+    font-size: 18px;
+    font-weight: normal;
+    text-shadow: 1px 1px 2px #fff;
+    margin-top: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 8px;
+    color: red;
+    width: 100%;
+  }
+  .popup-message h4 {
+    font-family: 'Cholontika', sans-serif !important; 
+    font-size: 20px;
+    width: 100%;
+    font-weight: normal;
+    margin-top: 5px;
+    color: #006064;
+    margin-bottom: -4px;
+  }
+  .popup-content p1 {
+    color: red;
+    font-size: 10px;
+  }
+    .popup-content p {
+    color: #009688;
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 10px;
+  }
+    .popup-content strong {
+    color: green;
+    font-weight: bold;
+    font-size: 15px;
+  }
+.section-title {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: -10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #333;
+  width: 100%;
+}
+.section h4{
+  color: red;
+  font-weight: normal;
+}
+.section-title::before,
+.section-title::after {
+  content: "";
+  margin: auto;
+   display: inline-block;
+  width: 40px;       /* রেখার দৈর্ঘ্য (কম/বেশি করতে পারো) */
+  height: 2px;       /* রেখার পুরুত্ব */
+  background-color: #333; /* রেখার রঙ */
+}
+.section-title::before {
+  margin-right: 5px; /* লেখার সাথে গ্যাপ */
+}
+.section-title::after {
+  margin-left: 5px; /* লেখার সাথে গ্যাপ */
+}
+  
+  
+  
+.Muhammad {
+  display: flex;
+  justify-content: space-between; /* একটা বামে, একটা ডানে */
+  align-items: center;           /* উল্লম্বভাবে মাঝখানে */
+  width: 100%;                   /* পুরো প্রস্থ জুড়ে */
+  max-width: 800px;              /* চাইলে সীমা নির্ধারণ */
+  margin: auto;                  /* কন্টেইনারকে মাঝখানে আনতে */
+}
+
+.Muhammad img {
+  height: 60px;   /* ইমেজ সাইজ নিয়ন্ত্রণ */
+  width: auto;    /* প্রোপোরশন ঠিক রাখবে */
+  margin-bottom: -3px;
+}
+
+.Muhammad img:first-child {
+  margin-top: 9px; /* শুধু প্রথম ইমেজটাকে নিচে নামালো */
+}
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.9);}
+    to {opacity: 1; transform: scale(1);}
+  }
+
+
+
+    .btn {
+      font-family: 'shad', sans-serif !important;
+      font-weight: normal;
+      display: inline-block;
+      padding: 12px 20px;
+      background: #0084FF;
+      font-size: 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #006edc;
+    }
+
+    audio {
+      width: 100%;
+      max-width: 400px;
+      outline: none;
+    }
+
+    .scroll-text {
+      font-weight: normal;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      border-radius: 8px;
+      padding: 10px;
+      
+    }
+
+    .scroll-text p {
+      display: inline-block;
+      padding-left: 100%;
+      transform: translateX(0%);
+      white-space: nowrap;
+      color: red;
+      font-size: 18px;
+      font-weight: normal;
+    }
+    
+    
+/* টাইটেলের জন্য কাস্টম স্টাইল */
+  .logo-title h1, .foundation-title,.section h4{
+    font-family: 'Cholontika', sans-serif !important;}
+    
+  @font-face {
+    font-family: 'Cholontika';
+    src: url('Codepotro Abu Sayed.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+ @font-face {
+    font-family: 'shad';
+    src: url('Shadhinata.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.foundation-description, .donate-button {
+font-family: 'shad', sans-serif !important; }
+/* Install Banner Styling */
+.install-banner {
+    position: fixed;
+    bottom: -100px; /* শুরুতে নিচে লুকিয়ে থাকবে */
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    transition: bottom 0.5s ease-in-out;
+    padding: 12px 15px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.install-banner.show {
+    bottom: 0; /* স্লাইড করে উপরে উঠবে */
+}
+
+.banner-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.banner-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.banner-logo {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.banner-text strong {
+    display: block;
+    font-size: 14px;
+    color: #333;
+}
+
+.banner-text span {
+    font-size: 11px;
+    color: #666;
+}
+
+.banner-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.banner-btn {
+    background: #006064;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.banner-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+    padding: 0 5px;
+}
