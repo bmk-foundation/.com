@@ -236,5 +236,45 @@
     </div>
   </footer>
   <script src="index.js"></script>
+  
+
+
+<script>
+    // ১. ThriveDesk বুটলোডার কোড (আপনার দেওয়া কোড)
+    !function(t,e,n){function s(){
+    var t=e.getElementsByTagName("script")[0],n=e.createElement("script");
+    n.type="text/javascript",n.async=!0,n.src="https://assistant.thrivedesk.com/bootloader.js?"+Date.now(),
+    t.parentNode.insertBefore(n,t)}if(t.Assistant=n=function(e,n,s){t.Assistant.readyQueue.push({method:e,options:n,data:s})},
+    n.readyQueue=[],"complete"===e.readyState)return s();
+    t.attachEvent?t.attachEvent("onload",s):t.addEventListener("load",s,!1)}
+    (window,document,window.Assistant||function(){});
+
+    // ২. চ্যাটবক্স ইনিশিয়ালাইজেশন
+    window.Assistant("init","a1544fec-e420-49a1-b96a-4b56a7d1492d");
+
+    // ৩. ব্যাক বাটন ফিক্স (মোবাইল ও ডেস্কটপ উভয়ের জন্য)
+    
+    // যখন ইউজার চ্যাট উইজেট ওপেন করবে
+    window.Assistant("on", "assistant:opened", function() {
+        // ব্রাউজার ইতিহাসে একটি নতুন স্টেট যোগ করা হচ্ছে
+        window.history.pushState({ chat_open: true }, "");
+    });
+
+    // যখন ইউজার ফোনের ব্যাক বাটন চাপবে
+    window.onpopstate = function(event) {
+        if (window.Assistant) {
+            // চ্যাটবক্সটি বন্ধ করে দেওয়া হবে কিন্তু ওয়েবসাইট ক্লোজ হবে না
+            window.Assistant("close");
+        }
+    };
+
+    // অতিরিক্ত নিরাপত্তা: চ্যাট বন্ধ হলে স্টেটটি সরিয়ে ফেলা
+    window.Assistant("on", "assistant:closed", function() {
+        if (window.history.state && window.history.state.chat_open) {
+            window.history.back();
+        }
+    });
+</script>
+  
 </body>
 </html>
