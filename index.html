@@ -41,6 +41,15 @@
 
   <!-- External CSS -->
   <link rel="stylesheet" href="index.css" />
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "ad895844-b96b-4690-8479-9da434e5a1d7",
+    });
+  });
+</script>
 </head>
 <body>
   <!-- Header -->
